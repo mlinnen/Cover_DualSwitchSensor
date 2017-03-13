@@ -1,0 +1,5 @@
+DualSwitchSensor	KEYWORD1
+setup	KEYWORD2
+loop	KEYWORD2
+getStateChanged	KEYWORD2
+getCurrentState	KEYWORD2
