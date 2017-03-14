@@ -40,28 +40,32 @@ namespace Cover
     }
     else
     {
-      if(_closeSensor->onPressed()) {
+      boolean closedPressed = _closeSensor->onPressed();
+      boolean closedOnReleased = _closeSensor->onReleased();
+      boolean openPressed = _openSensor->onPressed();
+      boolean openOnReleased = _openSensor->onReleased();
+      if(closedPressed) {
         Serial.println("Close Sensor Activate");
         _currentState = StateClosed;
       }
-      if(_closeSensor->onReleased()) {
+      if(closedOnReleased) {
         Serial.println("Close Sensor Deactivated");
         _currentState = StateOpening;
       }
-      if(_openSensor->onPressed() && (_lastState == StateUnknown)) {
+      if (openPressed && (_lastState == StateUnknown)) {
         Serial.println("Open Sensor Activated");
         _currentState = StateOpen;
       }
-      else if(_openSensor->onPressed() && (_lastState == StateOpening)) {
+      else if(openPressed && (_lastState == StateOpening)) {
         Serial.println("Open Sensor Activated");
         _currentState = StateOpen;
       }
-      else if(_openSensor->onPressed() && (_lastState == StateClosing)) {
+      else if(openPressed && (_lastState == StateClosing)) {
         Serial.println("Open Sensor Activated");
         _currentState = StateOpen;
         // This is an error state since the cover was closing then it opened
       }
-      if(_openSensor->onReleased()) {
+      if(openOnReleased) {
         Serial.println("Open Sensor Deactivated");
         _currentState = StateClosing;
       }
