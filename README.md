@@ -43,6 +43,6 @@ Closing the up or down switches will change the state of the sensor and it will 
 
 
 ### More Complete Examples
-This library is used in a set of more complete examples here: TODO
+This repository contains more examples on how to use the cover libraries in a more complete way.  [Cover Full Examples](https://github.com/mlinnen/Cover_FullExamples)
 
 
